@@ -39,16 +39,7 @@
 
 -(void)setValidReading:(float)r
 {
-    // Normal reading update stuff
-    if(reading != r) {
-        float oldreading=reading;
-        reading=r;
-        NSLog(@"Updated %@ (%.2f -> %.2f)", [self name], oldreading, reading);
-        
-		// Send the notification
-		[[NSNotificationCenter defaultCenter] 
-			postNotificationName:DATA_UPDATED object:self];
-    }
+	// Grab all the historical and trend data first
 
     // Keep the array small enough.
     while([lastReadings count] >= RING_BUFFER_SIZE) {
@@ -63,6 +54,20 @@
     TempReading *lastReading=[lastReadings lastObject];
     // Remember the trend (upwards or downwards)
     trend=r - [lastReading floatValue];
+
+	// Then process the reading change and send notifications
+
+    // Normal reading update stuff
+    if(reading != r) {
+        float oldreading=reading;
+        reading=r;
+        NSLog(@"Updated %@ (%.2f -> %.2f)", [self name], oldreading, reading);
+        
+		// Send the notification
+		[[NSNotificationCenter defaultCenter] 
+			postNotificationName:DATA_UPDATED object:self];
+    }
+
 }
 
 // Check for valid values
