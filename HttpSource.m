@@ -50,13 +50,8 @@
 		[connection retainCount]);
 }
 
-#ifdef GNUSTEP
--(void)connection:(URLConnection *)connection
-	didFailWithError:(URLError *)error
-#else
 - (void)connection:(NSURLConnection *)connection
 	didFailWithError:(NSError *)error
-#endif
 {
 	NSLog(@"Connection failed! Error - %@", error);
 	[connection release];
