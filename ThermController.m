@@ -196,6 +196,10 @@
 #endif
 	} else {
 		NSLog(@"Unhandled scheme:  %@", scheme);
+		NSRunAlertPanel(@"Unhandled Scheme",
+			[NSString stringWithFormat: @"Unhandled scheme:  %@", scheme],
+			@"OK", nil, nil);
+		[NSApp terminate: self];
 	}
 	NSLog(@"Initialized source:  %@", tempSrc);
 
