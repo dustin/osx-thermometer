@@ -7,13 +7,9 @@
 //
 
 #import "ThermController.h"
-#import "TempSource.h";
-#import "LempSource.h";
+#import "TempSource.h"
+#import "LempSource.h"
 #import "HttpSource.h"
-
-#ifndef GNUSTEP
-# define HAVE_HTTP_SOURCE 1
-#endif
 
 @implementation ThermController
 
@@ -187,10 +183,8 @@
 	
 	if([scheme isEqual: @"lemp"]) {
 		tempSrc=[[LempSource alloc] initWithURL: thermUrl];
-#ifdef HAVE_HTTP_SOURCE
 	} else if([scheme isEqual: @"http"]) {
 		tempSrc=[[HttpSource alloc] initWithURL: thermUrl];
-#endif
 	} else {
 		NSLog(@"Unhandled scheme:  %@", scheme);
 		NSRunAlertPanel(@"Unhandled Scheme",

@@ -9,6 +9,14 @@
 #import "HttpSource.h"
 #import "Thermometer.h"
 
+#ifdef GNUSTEP
+#import <URLConnection.h>
+#define NSURLConnection URLConnection
+#define NSURLRequest URLRequest
+#define NSURLResponse URLResponse
+#define NSURLRequestUseProtocolCachePolicy URLRequestUseProtocolCachePolicy
+#endif
+
 @interface HttpThermometer : Thermometer {
 	NSURL *url;
 	NSMutableData *responseData;
@@ -38,14 +46,19 @@
 {
 	// NSLog(@"Received response:  %@", response);
 	[responseData setLength:0];
+	NSLog(@"Received response, connection retain count is %d",
+		[connection retainCount]);
 }
 
+#ifdef GNUSTEP
+-(void)connection:(URLConnection *)connection
+	didFailWithError:(URLError *)error
+#else
 - (void)connection:(NSURLConnection *)connection
 	didFailWithError:(NSError *)error
+#endif
 {
-	NSLog(@"Connection failed! Error - %@ %@",
-		[error localizedDescription],
-		[[error userInfo] objectForKey:NSErrorFailingURLStringKey]);
+	NSLog(@"Connection failed! Error - %@", error);
 	[connection release];
 	[responseData release];
 	responseData=nil;
@@ -53,6 +66,8 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
+	NSLog(@"Connection received data, retain count:  %d",
+		[connection retainCount]);
 	[responseData appendData:data];
 }
 
@@ -71,8 +86,11 @@
 		object:tr];
 
 	[dataStr release];
+	NSLog(@"finished connection retain count:  %d", [connection retainCount]);
 	[connection release];
+	NSLog(@"released connection");
 	[responseData release];
+	NSLog(@"released response data");
 	responseData=nil;
 }
 
@@ -85,6 +103,7 @@
 	NSURLConnection *theConnection=[[NSURLConnection alloc]
 		initWithRequest:theRequest delegate:self];
 	if(theConnection != nil) {
+		NSLog(@"New connection retain count: %d", [theConnection retainCount]);
 		responseData=[[NSMutableData data] retain];
 	} else {
 		NSLog(@"Couldn't make a connection for %@", url);
@@ -130,7 +149,7 @@
 	updater=[NSTimer scheduledTimerWithTimeInterval:freq
 		target: self
 		selector: @selector(update)
-		userInfo:nil repeats:true];
+		userInfo:nil repeats:TRUE];
 }
 
 -(void)update

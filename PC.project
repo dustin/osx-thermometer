@@ -12,7 +12,8 @@
 	Readings.m,
 	LempSource.m,
 	TempSource.m,
-	PreferenceController.m
+	PreferenceController.m,
+	HttpSource.m
     );
     COMPILEROPTIONS = "";
     CPPOPTIONS = "";
@@ -32,7 +33,8 @@
 	Readings.h,
 	LempSource.h,
 	TempSource.h,
-	PreferenceController.h
+	PreferenceController.h,
+	HttpSource.h
     );
     IMAGES = (
 	"therm-c.png",
@@ -45,10 +47,11 @@
 	Preferences.gorm
     );
     LANGUAGE = English;
-    LAST_EDITING = "2005-02-11 04:27:41 +0000";
+    LAST_EDITING = "2005-02-11 07:12:43 +0000";
     LIBRARIES = (
 	"gnustep-base",
-	"gnustep-gui"
+	"gnustep-gui",
+	URLLoading
     );
     LINKEROPTIONS = "";
     LOCALIZED_RESOURCES = (
@@ -63,7 +66,7 @@
 	main.m
     );
     PC_WINDOWS = {
-	ProjectWindow = "21 76 560 448 0 0  1216 854 ";
+	ProjectWindow = "11 129 560 448 0 0  1216 854 ";
 	ShowToolbar = YES;
     };
     PRINCIPAL_CLASS = NSApplication;
@@ -84,8 +87,12 @@
     PROJECT_TYPE = Application;
     PROJECT_URL = "http://bleu.west.spy.net/~dustin/";
     SEARCH_HEADER_DIRS = (
+	"/home/dustin/GNUstep/Library/Frameworks/URLLoading.framework/Headers/"
     );
     SEARCH_LIB_DIRS = (
+	"/home/dustin/GNUstep/Library/Frameworks",
+	"/home/dustin/GNUstep/Library/Frameworks",
+	"/home/dustin/GNUstep/Library/Frameworks/URLLoading.framework/Versions/Current"
     );
     SUBPROJECTS = (
     );

@@ -39,7 +39,8 @@ LogController.h \
 Readings.h \
 LempSource.h \
 TempSource.h \
-PreferenceController.h
+PreferenceController.h \
+HttpSource.h
 
 #
 # Class files
@@ -55,7 +56,8 @@ LogController.m \
 Readings.m \
 LempSource.m \
 TempSource.m \
-PreferenceController.m
+PreferenceController.m \
+HttpSource.m
 
 #
 # C files
