@@ -10,11 +10,7 @@
 #import "Thermometer.h"
 
 #ifdef GNUSTEP
-#import <URLConnection.h>
-#define NSURLConnection URLConnection
-#define NSURLRequest URLRequest
-#define NSURLResponse URLResponse
-#define NSURLRequestUseProtocolCachePolicy URLRequestUseProtocolCachePolicy
+#import <URLLoading/NSURLLoading.h>
 #endif
 
 @interface HttpThermometer : Thermometer {
