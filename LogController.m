@@ -44,4 +44,10 @@
 	[outline reloadData];
 }
 
+-(IBAction)showWindow:(id)sender
+{
+	[super showWindow:sender];
+	[outline reloadData];
+}
+
 @end
