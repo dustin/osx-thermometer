@@ -67,7 +67,7 @@
 }
 
 // Check for valid values
-static bool isValidReading(float r)
+static BOOL isValidReading(float r)
 {
     return( (r>-100) && (r<100) );
 }

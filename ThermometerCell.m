@@ -97,8 +97,12 @@ static float ctof(float c)
     int trans=-90;
     float rad, angle;
     int over=bounds.origin.x + (bounds.size.width/2);
-    // int up=(bounds.size.height/2);
+#ifdef GNUSTEP
+	over-=1;
+    int up=bounds.origin.y + 66; // This is where the dot is
+#else
     int up=bounds.origin.y + 69; // This is where the dot is
+#endif
     
     angle=([self reading] * 1.8);
     // NSLog(@"Calculated angle:  %.2f", angle);

@@ -1,0 +1,95 @@
+{
+    APPLICATIONICON = "";
+    APP_DOCUMENT_BASED = NO;
+    CLASS_FILES = (
+	AppController.m,
+	LempClient.m,
+	TempReading.m,
+	ThermController.m,
+	Thermometer.m,
+	ThermometerCell.m,
+	LogController.m,
+	Readings.m,
+	LempSource.m,
+	TempSource.m
+    );
+    COMPILEROPTIONS = "";
+    CPPOPTIONS = "";
+    CREATION_DATE = "2005-02-09 06:09:22 +0000";
+    DOCU_FILES = (
+    );
+    FRAMEWORKS = (
+    );
+    HEADER_FILES = (
+	AppController.h,
+	LempClient.h,
+	TempReading.h,
+	ThermController.h,
+	Thermometer.h,
+	ThermometerCell.h,
+	LogController.h,
+	Readings.h,
+	LempSource.h,
+	TempSource.h
+    );
+    IMAGES = (
+	"therm-c.png",
+	"therm-f.png"
+    );
+    INSTALLDIR = "$(HOME)/GNUstep";
+    INTERFACES = (
+	Thermometer.gorm
+    );
+    LANGUAGE = English;
+    LAST_EDITING = "2005-02-10 09:44:56 +0000";
+    LIBRARIES = (
+	"gnustep-base",
+	"gnustep-gui"
+    );
+    LINKEROPTIONS = "";
+    LOCALIZED_RESOURCES = (
+    );
+    MAININTERFACE = Thermometer.gorm;
+    MAKEFILEDIR = "$(GNUSTEP_MAKEFILES)";
+    OBJC_COMPILEROPTIONS = "";
+    OTHER_RESOURCES = (
+	"Info-gnustep.plist"
+    );
+    OTHER_SOURCES = (
+	main.m
+    );
+    PC_WINDOWS = {
+	ProjectWindow = "7 150 560 448 0 0  1216 854 ";
+	ShowToolbar = YES;
+    };
+    PRINCIPAL_CLASS = NSApplication;
+    PROJECT_AUTHORS = (
+    );
+    PROJECT_COPYRIGHT = "Copyright (C) 200x";
+    PROJECT_COPYRIGHT_DESC = "Released under ...";
+    PROJECT_CREATOR = "User &";
+    PROJECT_DESCRIPTION = "No description avaliable!";
+    PROJECT_DOCUMENTTYPES = (
+    );
+    PROJECT_GROUP = "No group avaliable!";
+    PROJECT_MAINTAINER = "User &";
+    PROJECT_NAME = Thermometer;
+    PROJECT_RELEASE = 0.1;
+    PROJECT_SUMMARY = "No summary avaliable!";
+    PROJECT_TYPE = Application;
+    PROJECT_URL = "";
+    SEARCH_HEADER_DIRS = (
+    );
+    SEARCH_LIB_DIRS = (
+    );
+    SUBPROJECTS = (
+    );
+    SUPPORTING_FILES = (
+	GNUmakefile.preamble,
+	GNUmakefile,
+	GNUmakefile.postamble
+    );
+    USER_LANGUAGES = (
+	English
+    );
+}

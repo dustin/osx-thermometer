@@ -1,0 +1,51 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    AppController = {
+	Actions = (
+	    "showPrefPanel:"
+	);
+	Outlets = (
+	);
+	Super = NSObject;
+    };
+    FirstResponder = {
+	Actions = (
+	    "launchPreferences:",
+	    "setCelsius:",
+	    "setFarenheit:",
+	    "showPrefPanel:",
+	    "update:"
+	);
+	Super = NSObject;
+    };
+    LogController = {
+	Actions = (
+	);
+	Outlets = (
+	    outline,
+	    readings
+	);
+	Super = NSWindowController;
+    };
+    Readings = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSObject;
+    };
+    ThermController = {
+	Actions = (
+	    "update:",
+	    "launchPreferences:",
+	    "setCelsius:",
+	    "setFarenheit:"
+	);
+	Outlets = (
+	    thermMatrix,
+	    status,
+	    dockMenu
+	);
+	Super = NSWindowController;
+    };
+}

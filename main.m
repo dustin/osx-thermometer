@@ -6,7 +6,7 @@
 //  Copyright (c) 2002 SPY internetworking. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <AppKit/AppKit.h>
 
 int main(int argc, const char *argv[])
 {

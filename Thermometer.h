@@ -12,6 +12,11 @@
 #define THERM_LIST @"THERM_LIST"
 #define RING_BUFFER_SIZE 60
 
+#ifndef TRUE
+#define TRUE 1
+#define FALSE 0
+#endif
+
 @interface Thermometer : NSObject {
     float reading;
     NSString *name;

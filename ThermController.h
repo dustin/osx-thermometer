@@ -6,7 +6,6 @@
 //  Copyright (c) 2003 SPY internetworking. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
 #import <AppKit/AppKit.h>
 
 #import "ThermometerCell.h"

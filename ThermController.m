@@ -11,29 +11,36 @@
 #import "LempSource.h";
 #import "HttpSource.h"
 
+#ifndef GNUSTEP
+# define HAVE_PREFERENCES 1
+# define HAVE_HTTP_SOURCE 1
+#endif
+
 @implementation ThermController
 
 -(IBAction)launchPreferences:(id)sender
 {
+#ifdef HAVE_PREFERENCES
 	if(prefController == nil) {
     	prefController=[[PreferenceController alloc]
 			initWithWindowNibName: @"Preferences"];
 	}
 	[prefController showWindow: sender];
+#endif
 }
 
 -(IBAction)setCelsius:(id)sender
 {
 	NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
     [defaults setObject: @"c" forKey: @"units"];
-    [thermMatrix setNeedsDisplay: true];
+    [thermMatrix setNeedsDisplay: TRUE];
 }
 
 -(IBAction)setFarenheit:(id)sender
 {
 	NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
     [defaults setObject: @"f" forKey: @"units"];
-    [thermMatrix setNeedsDisplay: true];
+    [thermMatrix setNeedsDisplay: TRUE];
 }
 
 // Updates from the UI
@@ -144,7 +151,7 @@
         [[NSDate date] description]];
     [status setStringValue: s];
     [s release];
-    [thermMatrix setNeedsDisplay: true];
+    [thermMatrix setNeedsDisplay: TRUE];
 }
 
 -(void)awakeInitialization:(id)ob
@@ -173,10 +180,12 @@
 	NSURL *thermUrl=[[NSURL alloc] initWithString: thermUrlString];
 	NSString *scheme=[thermUrl scheme];
 	
-	if([scheme isEqual: @"http"]) {
-		tempSrc=[[HttpSource alloc] initWithURL: thermUrl];
-	} else if([scheme isEqual: @"lemp"]) {
+	if([scheme isEqual: @"lemp"]) {
 		tempSrc=[[LempSource alloc] initWithURL: thermUrl];
+#ifdef HAVE_HTTP_SOURCE
+	} else if([scheme isEqual: @"http"]) {
+		tempSrc=[[HttpSource alloc] initWithURL: thermUrl];
+#endif
 	} else {
 		NSLog(@"Unhandled scheme:  %@", scheme);
 	}
@@ -195,14 +204,22 @@
     int r, c;
     [thermMatrix getNumberOfRows:&r columns:&c];
 	NSLog(@"Configuring window for %dx%d from %dx%d", r, c, orow, ocol);
-    
+
 	// Set the window size.
     NSRect newdims=[[self window] frame];
+
+	/* Slight different size calculation needed for gnustep vs. cocoa */
+#ifdef GNUSTEP
+	newdims.size.height=20+(151*(r-0));
+	newdims.size.width=0+(143*(c-1));
+#else
     newdims.size.width=318+(143*(c-ocol));
     newdims.size.height=223+(151*(r-orow));
+#endif
+
     [[self window] setMinSize: newdims.size];
     [[self window] setMaxSize: newdims.size];
-    [[self window] setFrame:newdims display:true];
+    [[self window] setFrame:newdims display:TRUE];
     
 
 	// what to do when the data is updated

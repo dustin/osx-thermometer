@@ -7,6 +7,11 @@
 -(void)awakeFromNib
 {
 	NSLog(@"LogController awoke from nib.");
+#ifdef GNUSTEP
+	// Bug in gorm prevents me from making these connections
+	[outline setDelegate: readings];
+	[outline setDataSource: readings];
+#endif
 	[[NSNotificationCenter defaultCenter]
         addObserver:self
         selector:@selector(dataUpdated:)
