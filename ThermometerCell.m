@@ -60,18 +60,11 @@
     [super dealloc];
 }
 
-static float ctof(float c)
-{
-    float rv=0.0;
-    rv=((9.0/5.0)*c) + 32.0;
-    return(rv);
-}
-
 -(float)reading
 {
     float rv=[therm reading];
     if(!celsius) {
-        rv=ctof(rv);
+        rv=CTOF(rv);
     }
     return(rv);
 }
@@ -94,7 +87,7 @@ static float ctof(float c)
 
 -(void)setUnits:(NSString *)u
 {
-	NSLog(@"Units set to %@", u);
+	// NSLog(@"Units set to %@", u);
     if([u isEqualToString: @"c"]) {
         celsius=TRUE;
         [self setImage: cImage];

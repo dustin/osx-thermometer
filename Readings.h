@@ -6,5 +6,9 @@
 @interface Readings : NSObject {
 	NSArray *therms;
 	NSDateFormatter *dateFormat;
+	BOOL celsius;
 }
+
+-(void)setUnits:(NSString *)to;
+
 @end

@@ -13,6 +13,8 @@
 #define UNIT_CHANGE @"UNIT_CHANGE"
 #define RING_BUFFER_SIZE 60
 
+#define CTOF(c) (((9.0/5.0)*c) + 32.0)
+
 #ifndef TRUE
 #define TRUE 1
 #define FALSE 0

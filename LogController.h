@@ -10,4 +10,7 @@
 	IBOutlet id readings;
 #endif
 }
+
+-(void)setUnits:(NSString *)to;
+
 @end

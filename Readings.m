@@ -10,7 +10,12 @@
 	therms=[[NSArray alloc] initWithObjects: nil];
 	dateFormat=[[NSDateFormatter alloc] initWithDateFormat:@"%A, %H:%M:%S"
 		allowNaturalLanguage:TRUE];
-	
+
+	// Get the default units
+	NSString *ustring=[[NSUserDefaults standardUserDefaults]
+		objectForKey:@"units"];
+	[self setUnits: ustring];
+
 	[[NSNotificationCenter defaultCenter]
         addObserver:self
         selector:@selector(gotThermometerList:)
@@ -22,6 +27,26 @@
         selector:@selector(dataUpdated:)
         name:DATA_UPDATED
         object:nil];
+
+	[[NSNotificationCenter defaultCenter]
+        addObserver:self
+        selector:@selector(unitChanged:)
+        name:UNIT_CHANGE
+        object:nil];
+}
+
+-(void)setUnits:(NSString *)to
+{
+	if([to isEqual:@"c"]) {
+		celsius=TRUE;
+	} else {
+		celsius=FALSE;
+	}
+}
+
+-(void)unitChanged:(id)ob
+{
+	[self setUnits:[ob object]];
 }
 
 -(void)gotThermometerList:(id)notification
@@ -76,7 +101,11 @@
 	// NSLog(@"Asking for object value of %@ of item %@", [tableColumn identifier], item);
 	id rv=nil;
 	if([@"reading" isEqual:[tableColumn identifier]]) {
-		rv=[NSString stringWithFormat: @"%.2f", [item reading]];
+		float reading=[item reading];
+		if(!celsius) {
+			reading=CTOF(reading);
+		}
+		rv=[NSString stringWithFormat: @"%.2f", reading];
 	} else {
 		if([item isKindOfClass: [Thermometer class]]) {
 			rv=[item name];
