@@ -6,9 +6,6 @@
 @interface LogController : NSWindowController
 {
     IBOutlet id outline;
-#ifdef GNUSTEP
-	IBOutlet id readings;
-#endif
 }
 
 -(void)setUnits:(NSString *)to;

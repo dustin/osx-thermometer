@@ -22,8 +22,7 @@
 	Actions = (
 	);
 	Outlets = (
-	    outline,
-	    readings
+	    outline
 	);
 	Super = NSWindowController;
     };
