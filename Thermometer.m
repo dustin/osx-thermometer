@@ -59,10 +59,7 @@
 
     // Normal reading update stuff
     if(reading != r) {
-        float oldreading=reading;
         reading=r;
-        NSLog(@"Updated %@ (%.2f -> %.2f)", [self name], oldreading, reading);
-        
 		// Send the notification
 		[[NSNotificationCenter defaultCenter] 
 			postNotificationName:DATA_UPDATED object:self];
