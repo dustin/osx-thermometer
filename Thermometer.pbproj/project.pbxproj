@@ -158,12 +158,12 @@
 		};
 		29B97317FDCFA39411CA2CEA = {
 			children = (
+				DA8EEB5B07BB6568007FE2EB,
+				DA8EEB5C07BB6568007FE2EB,
 				DAEF6FBC06F259E200332201,
 				DAEF6F9506F2571600332201,
 				DA5B145904303C2700A80132,
 				DA641D0A04301FBA00A80132,
-				DAC72A7304108DB200A80132,
-				DAC72A7404108DB200A80132,
 				29B97318FDCFA39411CA2CEA,
 				089C165CFE840E0CC02AAC07,
 			);
@@ -476,6 +476,34 @@
 			refType = 4;
 			sourceTree = "<group>";
 		};
+		DA8EEB5B07BB6568007FE2EB = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "therm-c.png";
+			path = "Resources/therm-c.png";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		DA8EEB5C07BB6568007FE2EB = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "therm-f.png";
+			path = "Resources/therm-f.png";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		DA8EEB5D07BB6568007FE2EB = {
+			fileRef = DA8EEB5B07BB6568007FE2EB;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		DA8EEB5E07BB6568007FE2EB = {
+			fileRef = DA8EEB5C07BB6568007FE2EB;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 		DAB80BDC042D85D700A80132 = {
 			fileEncoding = 4;
 			isa = PBXFileReference;
@@ -521,20 +549,6 @@
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.objc;
 			path = TempReading.m;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		DAC72A7304108DB200A80132 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			path = "therm-f.png";
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		DAC72A7404108DB200A80132 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			path = "therm-c.png";
 			refType = 4;
 			sourceTree = "<group>";
 		};
@@ -652,11 +666,11 @@
 			files = (
 				DAEF6FAB06F259E200332201,
 				DAEF6FAC06F259E200332201,
-				DAEF6FAD06F259E200332201,
-				DAEF6FAE06F259E200332201,
 				DAEF6FAF06F259E200332201,
 				DAEF6FB006F259E200332201,
 				DAEF6FB106F259E200332201,
+				DA8EEB5D07BB6568007FE2EB,
+				DA8EEB5E07BB6568007FE2EB,
 			);
 			isa = PBXResourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -669,18 +683,6 @@
 		};
 		DAEF6FAC06F259E200332201 = {
 			fileRef = 089C165CFE840E0CC02AAC07;
-			isa = PBXBuildFile;
-			settings = {
-			};
-		};
-		DAEF6FAD06F259E200332201 = {
-			fileRef = DAC72A7304108DB200A80132;
-			isa = PBXBuildFile;
-			settings = {
-			};
-		};
-		DAEF6FAE06F259E200332201 = {
-			fileRef = DAC72A7404108DB200A80132;
 			isa = PBXBuildFile;
 			settings = {
 			};
