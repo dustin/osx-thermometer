@@ -108,7 +108,9 @@
 		rv=[NSString stringWithFormat: @"%.2f", reading];
 	} else {
 		if([item isKindOfClass: [Thermometer class]]) {
-			rv=[item name];
+			NSString *label=[NSString stringWithFormat: @"%@ (%d)",
+				[item name], [[item lastReadings] count]];
+			rv=label;
 		} else {
 			rv=[dateFormat stringForObjectValue: [item readingTimestamp]];
 		}
