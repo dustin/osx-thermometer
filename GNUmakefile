@@ -7,7 +7,7 @@ include $(GNUSTEP_MAKEFILES)/common.make
 #
 # Application
 #
-VERSION = 0.1
+VERSION = 1.2
 PACKAGE_NAME = Thermometer
 APP_NAME = Thermometer
 Thermometer_APPLICATION_ICON = 
