@@ -21,7 +21,8 @@ Thermometer_RESOURCE_FILES = \
 Resources/Thermometer.gorm \
 Resources/Preferences.gorm\
 Resources/therm-c.png \
-Resources/therm-f.png\
+Resources/therm-f.png \
+Resources/temp.tiff\
 Resources/Info-gnustep.plist
 
 #

@@ -36,7 +36,8 @@
     );
     IMAGES = (
 	"therm-c.png",
-	"therm-f.png"
+	"therm-f.png",
+	temp.tiff
     );
     INSTALLDIR = "$(HOME)/GNUstep";
     INTERFACES = (
