@@ -52,7 +52,7 @@
 		[NSTimer scheduledTimerWithTimeInterval:60
 			target: self
 			selector: @selector(lempReconnect)
-			userInfo:nil repeats:FALSE];
+			userInfo:nil repeats:NO];
 	} else {
 		NSLog(@"Reconnected");
 	}
@@ -75,7 +75,7 @@
 	[NSTimer scheduledTimerWithTimeInterval:15
 		target: self
 		selector: @selector(lempReconnect)
-		userInfo:nil repeats:FALSE];
+		userInfo:nil repeats:NO];
 }
 
 @end

@@ -9,7 +9,7 @@
 {
 	therms=[[NSArray alloc] initWithObjects: nil];
 	dateFormat=[[NSDateFormatter alloc] initWithDateFormat:@"%A, %H:%M:%S"
-		allowNaturalLanguage:TRUE];
+		allowNaturalLanguage:YES];
 
 	// Get the default units
 	NSString *ustring=[[NSUserDefaults standardUserDefaults]
@@ -38,9 +38,9 @@
 -(void)setUnits:(NSString *)to
 {
 	if([to isEqual:@"c"]) {
-		celsius=TRUE;
+		celsius=YES;
 	} else {
-		celsius=FALSE;
+		celsius=NO;
 	}
 }
 
@@ -77,9 +77,9 @@
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
 {
-	BOOL rv=FALSE;
+	BOOL rv=NO;
 	if([item isKindOfClass: [Thermometer class]]) {
-		rv=TRUE;
+		rv=YES;
 	}
 	return(rv);
 }

@@ -10,11 +10,6 @@
 #import "LempClient.h"
 #import "TempReading.h"
 
-#ifndef TRUE
-#define TRUE 1
-#define FALSE 0
-#endif
-
 @implementation LempClient
 
 static int
@@ -134,14 +129,14 @@ initSocket(const char *host, int port)
 
 -(void)readLoop:(id)nothing
 {
-	BOOL going=TRUE;
+	BOOL going=YES;
 	while(going) {
 		NSAutoreleasePool *pool=[[NSAutoreleasePool alloc] init];
 		NSString *str=[self readLine];
 		// NSLog(@"Loop read %@", str);
 		
 		if(str == nil) {
-			going=FALSE;
+			going=NO;
 			NSLog(@"LEMP client exiting...");
 		} else if([str hasPrefix: @"200"] || [str hasPrefix: @"223"]) {
 			NSArray *parts=[str componentsSeparatedByString: @"\t"];
@@ -152,14 +147,14 @@ initSocket(const char *host, int port)
 				initWithName:name reading:reading];
 			[tr autorelease];
 			[_delegate performSelectorOnMainThread:@selector(receiveUpdate:)
-				withObject:tr waitUntilDone:FALSE];
+				withObject:tr waitUntilDone:NO];
 		}
 
 		[pool release];
 	}
 	// Let the listener know we're exiting
 	[_delegate performSelectorOnMainThread:@selector(lempExiting:)
-		withObject:self waitUntilDone:FALSE];
+		withObject:self waitUntilDone:NO];
 }
 
 @end

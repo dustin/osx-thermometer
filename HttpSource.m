@@ -149,7 +149,7 @@
 	updater=[NSTimer scheduledTimerWithTimeInterval:freq
 		target: self
 		selector: @selector(update)
-		userInfo:nil repeats:TRUE];
+		userInfo:nil repeats:YES];
 }
 
 -(void)update

@@ -8,11 +8,6 @@
 
 #import "ThermometerCell.h"
 
-#ifndef TRUE
-#define TRUE 1
-#define FALSE 0
-#endif
-
 @implementation ThermometerCell
 
 -(id)initWithUnits:(NSString *)u
@@ -89,10 +84,10 @@
 {
 	// NSLog(@"Units set to %@", u);
     if([u isEqualToString: @"c"]) {
-        celsius=TRUE;
+        celsius=YES;
         [self setImage: cImage];
     } else {
-        celsius=FALSE;
+        celsius=NO;
         [self setImage: fImage];
     }
 }
@@ -137,7 +132,7 @@
 -(void)newReading:(float)r
 {
     // NSLog(@"Received delegate notification of new reading:  %.2f", r);
-    // [self setNeedsDisplay: TRUE];
+    // [self setNeedsDisplay: YES];
 }
 
 //

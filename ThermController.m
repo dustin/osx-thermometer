@@ -29,7 +29,7 @@
 	[[NSNotificationCenter defaultCenter]
 		postNotificationName:UNIT_CHANGE
 		object:to];
-    [thermMatrix setNeedsDisplay: TRUE];
+    [thermMatrix setNeedsDisplay: YES];
 }
 
 -(IBAction)setCelsius:(id)sender
@@ -152,7 +152,7 @@
         [[NSDate date] description]];
     [status setStringValue: s];
     [s release];
-    [thermMatrix setNeedsDisplay: TRUE];
+    [thermMatrix setNeedsDisplay: YES];
 }
 
 -(void)awakeInitialization:(id)ob
@@ -222,7 +222,7 @@
 
     [[self window] setMinSize: newdims.size];
     [[self window] setMaxSize: newdims.size];
-    [[self window] setFrame:newdims display:TRUE];
+    [[self window] setFrame:newdims display:YES];
     
 
 	// what to do when the data is updated
