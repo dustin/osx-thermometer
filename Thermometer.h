@@ -16,16 +16,13 @@
     float reading;
     NSString *name;
     int tag;
-    NSString *url;
     
     NSMutableArray *lastReadings;
     float trend;
-	
-	NSMutableData *responseData;
 }
 
 // Initialize this Thermometer
--(id)initWithName:(NSString *)theName url:(NSString *)ustr;
+-(id)initWithName:(NSString *)theName;
 
 -(void)setReading: (float)r;
 -(float)reading;
@@ -34,7 +31,6 @@
 -(NSString *)name;
 
 -(NSArray *)lastReadings;
--(void)update;
 
 -(int)tag;
 -(void)setTag:(int)to;

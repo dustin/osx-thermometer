@@ -7,63 +7,31 @@
 //
 
 #import "ThermController.h"
-#import "Thermometer.h"
-#import "LempClient.h";
+#import "TempSource.h";
+#import "LempSource.h";
+#import "HttpSource.h"
 
 @implementation ThermController
 
-// Timer scheduling
--(void)scheduleTimer
-{
-    // Schedule updates
-    int freq=[[defaults objectForKey: @"frequency"] intValue];
-    NSLog(@"Scheduling timer with frequency:  %d", freq);
-    updater=[NSTimer scheduledTimerWithTimeInterval:freq
-        target: self
-        selector: @selector(update)
-        userInfo:nil repeats:true];
-}
-
--(void)update
-{
-	// Get an autorelease pool for this update
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-
-    NSLog(@"Updating.");
-    NSEnumerator *enumerator = [therms objectEnumerator];
-    id object;
-    while (object = [enumerator nextObject]) {
-        [object update];
-    }
-    
-    // Now, verify the timer is scheduled appropriately
-    double erval=[[defaults objectForKey: @"frequency"] doubleValue];
-    double cur=(double)[updater timeInterval];
-    if(erval != cur) {
-        NSLog(@"Time has changed from %.2f to %.2f, updating", cur, erval);
-        [updater invalidate];
-        [self scheduleTimer];
-    }
-	// Release the autorelease pool
-	[pool release];
-}
-
 -(IBAction)launchPreferences:(id)sender
 {
-	// XXX:  This leaks memory every time the preferences panel is launched
-    id prefc=[[PreferenceController alloc] initWithWindowNibName: @"Preferences"];
-    [prefc startUp: defaults];
-    NSLog(@"Initialized Test");
+	if(prefController == nil) {
+    	prefController=[[PreferenceController alloc]
+			initWithWindowNibName: @"Preferences"];
+	}
+	[prefController showWindow: sender];
 }
 
 -(IBAction)setCelsius:(id)sender
 {
+	NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
     [defaults setObject: @"c" forKey: @"units"];
     [thermMatrix setNeedsDisplay: true];
 }
 
 -(IBAction)setFarenheit:(id)sender
 {
+	NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
     [defaults setObject: @"f" forKey: @"units"];
     [thermMatrix setNeedsDisplay: true];
 }
@@ -71,7 +39,8 @@
 // Updates from the UI
 -(IBAction)update:(id)sender
 {
-    [self update];
+	NSLog(@"Need to update, but no direct way to do this yet");
+    // [self update];
 }
 
 -(void)initDefaults
@@ -84,7 +53,7 @@
     [dd setObject: n forKey: @"frequency"];
     [n release];
     
-    defaults=[NSUserDefaults standardUserDefaults];
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
     // Add the default defaults
     [defaults registerDefaults: dd];
     // [self setUnits: [defaults objectForKey: @"units"]];
@@ -98,7 +67,7 @@
 	TempReading *tr=[ob object];
 
 	// Look for our thermometer
-    NSEnumerator *enumerator = [therms objectEnumerator];
+    NSEnumerator *enumerator = [[tempSrc therms] objectEnumerator];
     Thermometer *therm;
     while (therm = [enumerator nextObject]) {
 		NSString *tname = [therm name];
@@ -123,6 +92,7 @@
 
 	/* Figure out the numbers of rows and columns */
 	int needrows, needcols;
+	NSArray *therms=[tempSrc therms];
 	needcols=sqrt([therms count]);
 	needrows=[therms count] / needcols;
 	int i=0;
@@ -156,7 +126,6 @@
 
         [tc setCImage: ci];
         [tc setFImage: fi];
-        [tc setDefaults: defaults];
         // Figure out where to put it
         int rownum=i % ([therms count]/c);
         int colnum=i/c;
@@ -178,89 +147,12 @@
     [thermMatrix setNeedsDisplay: true];
 }
 
--(NSArray *)httpClientInit
-{
-    // Grab the list.
-    NSString *thermsurls=[defaults objectForKey: @"url"];
-    NSURL *thermsurl=[[NSURL alloc] initWithString: thermsurls];
-	NSLog(@"Initializing list from %@", thermsurl);
-    NSString *thermlist=[[NSString alloc] initWithContentsOfURL: thermsurl];
-    NSArray *thermarray=[thermlist componentsSeparatedByString:@"\n"];
-	NSLog(@"List is (%@) %@", thermlist, thermarray);
-    [thermsurl release];
-    [thermlist release];
-
-    // Later initialization
-    [self performSelector: @selector(update)
-        withObject:nil
-        afterDelay:0];
-
-	// Schedule the timer for future updates
-    [self scheduleTimer];
-
-	return(thermarray);
-}
-
--(NSArray *)lempClientInit
-{
-	NSString *thermUrlString=[defaults objectForKey: @"url"];
-	NSURL *thermUrl=[[NSURL alloc] initWithString: thermUrlString];
-	NSNumber *portNum=[thermUrl port];
-	int port=8181;
-	if(portNum != nil) {
-		port=[portNum intValue];
-	}
-	LempClient *lc=[[LempClient alloc] initWithDelegate:self
-		host:[thermUrl host] port:port];
-	if(lc == nil) {
-		NSLog(@"lempClient failed to initialize!");
-	}
-	NSArray *thermarray=[lc therms];
-	_lempThread=[NSThread detachNewThreadSelector:@selector(readLoop:)
-		toTarget:lc withObject:nil];
-	return(thermarray);
-}
-
--(void)lempReconnect
-{
-	NSArray *ta=[self lempClientInit];
-	if(ta == nil) {
-		NSLog(@"Failed to reconnect, retrying.");
-		[NSTimer scheduledTimerWithTimeInterval:60
-        	target: self
-        	selector: @selector(lempReconnect)
-        	userInfo:nil repeats:false];
-	} else {
-		NSLog(@"Reconnected.");
-	}
-}
-
--(void)receiveUpdate:(TempReading *)reading;
-{
-	[[NSNotificationCenter defaultCenter]
-		postNotificationName:[NSString stringWithFormat:@"update-%@",
-			[reading name]]
-		object:reading];
-}
-
--(void)lempExiting:(LempClient *)lc
-{
-    NSString *s=[[NSString alloc] initWithFormat:
-		@"lemp client failed at:  %@, restarting", [[NSDate date] description]];
-    [status setStringValue: s];
-	NSLog(@"lemp thread exiting, beginning restart sequence");
-	[NSTimer scheduledTimerWithTimeInterval:15
-        target: self
-        selector: @selector(lempReconnect)
-        userInfo:nil repeats:false];
-}
-
 -(void)awakeInitialization:(id)ob
 {
 	// Now that we're up, blast out the thermometer list for all to see
 	[[NSNotificationCenter defaultCenter]
 		postNotificationName:THERM_LIST
-		object:therms];
+		object:[tempSrc therms]];
 }
 
 -(void)awakeFromNib
@@ -275,37 +167,20 @@
     NSImage *ci = [[NSImage alloc] initWithContentsOfFile:path];
     path = [mainBundle pathForResource:@"therm-f" ofType:@"png"];
     NSImage *fi = [[NSImage alloc] initWithContentsOfFile:path];
-	
+
+	NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
 	NSString *thermUrlString=[defaults objectForKey: @"url"];
 	NSURL *thermUrl=[[NSURL alloc] initWithString: thermUrlString];
 	NSString *scheme=[thermUrl scheme];
 	
-	NSArray *thermarrayTmp=nil;
-	
 	if([scheme isEqual: @"http"]) {
-		thermarrayTmp=[self httpClientInit];
+		tempSrc=[[HttpSource alloc] initWithURL: thermUrl];
 	} else if([scheme isEqual: @"lemp"]) {
-		thermarrayTmp=[self lempClientInit];
+		tempSrc=[[LempSource alloc] initWithURL: thermUrl];
 	} else {
 		NSLog(@"Unhandled scheme:  %@", scheme);
 	}
-
-	NSArray *thermarray = 
-		[thermarrayTmp
-			sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-
-	// Convert the list of names to a list of Thermometers
-    therms=[[NSMutableArray alloc] initWithCapacity: [thermarray count]];
-    NSEnumerator *enumerator = [thermarray objectEnumerator];
-    NSString *anObject;
-    while (anObject = [enumerator nextObject]) {
-        if([anObject length] > 0) {
-            Thermometer *t=[[Thermometer alloc] initWithName: anObject
-                url:[defaults objectForKey: @"url"]];
-            [therms addObject: t];
-            [t release];
-        }
-    }
+	NSLog(@"Initialized source:  %@", tempSrc);
 
 	// get the row sizes and stuff
     int orow, ocol;

@@ -21,6 +21,4 @@
 -(IBAction)cancel:(id)sender;
 -(IBAction)apply:(id)sender;
 
--(void)startUp:(NSUserDefaults *)d;
-
 @end

@@ -11,10 +11,12 @@
 
 @implementation PreferenceController
 
--(void)startUp:(NSUserDefaults *)d
+-(void)showWindow:(id)sender
 {
-    defaults=d;
-    [self showWindow: self];
+    defaults=[NSUserDefaults standardUserDefaults];
+	NSLog(@"Defaults:  %@:  url=%@, freq=%@", defaults,
+		[defaults objectForKey: @"url"], [defaults objectForKey: @"frequency"]);
+    [super showWindow: sender];
     [url setStringValue: [defaults objectForKey: @"url"]];
     [frequency setIntValue: [[defaults objectForKey: @"frequency"] intValue]];
 }

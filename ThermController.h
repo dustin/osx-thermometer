@@ -12,25 +12,20 @@
 #import "ThermometerCell.h"
 #import "PreferenceController.h"
 #import "TempReading.h"
+#import "Thermometer.h"
+#import "TempSource.h"
 
 @interface ThermController : NSWindowController {
     IBOutlet NSMatrix *thermMatrix;
     IBOutlet NSTextField *status;
     IBOutlet NSMenu *dockMenu;
-    
-    NSMutableArray *therms;
-    NSTimer *updater;
-    
-    NSUserDefaults *defaults;
-	
-	NSThread *_lempThread;
+
+	TempSource *tempSrc;
+	NSWindowController *prefController;
 }
 
--(void)update;
 -(IBAction)update:(id)sender;
 -(IBAction)launchPreferences:(id)sender;
-
--(void)receiveUpdate:(TempReading *)r;
 
 -(IBAction)setCelsius:(id)sender;
 -(IBAction)setFarenheit:(id)sender;

@@ -19,6 +19,7 @@
 {
     id rv=[super init];
     celsius=TRUE;
+	defaults=[NSUserDefaults standardUserDefaults];
     [self setImagePosition: NSImageAbove];
     [self setHighlightsBy: NSNoCellMask];
     [self setShowsStateBy: NSNoCellMask];
@@ -64,14 +65,18 @@ static float ctof(float c)
 
 -(void)setCImage: (NSImage *)to
 {
-    [to retain];
-    cImage=to;
+    cImage=[to retain];
+	if(celsius) {
+		[self setImage: cImage];
+	}
 }
 
 -(void)setFImage: (NSImage *)to
 {
-    [to retain];
-    fImage=to;
+    fImage=[to retain];
+	if(!celsius) {
+		[self setImage: fImage];
+	}
 }
 
 -(void)setUnits:(NSString *)u
@@ -83,12 +88,6 @@ static float ctof(float c)
         celsius=FALSE;
         [self setImage: fImage];
     }
-}
-
--(void)setDefaults:(NSUserDefaults *)d
-{
-    defaults=d;
-    [self setUnits: [defaults objectForKey: @"units"]];
 }
 
 /* Draw the actual arm of the thermometer here. */
