@@ -11,7 +11,8 @@
 	LogController.m,
 	Readings.m,
 	LempSource.m,
-	TempSource.m
+	TempSource.m,
+	PreferenceController.m
     );
     COMPILEROPTIONS = "";
     CPPOPTIONS = "";
@@ -30,7 +31,8 @@
 	LogController.h,
 	Readings.h,
 	LempSource.h,
-	TempSource.h
+	TempSource.h,
+	PreferenceController.h
     );
     IMAGES = (
 	"therm-c.png",
@@ -38,10 +40,11 @@
     );
     INSTALLDIR = "$(HOME)/GNUstep";
     INTERFACES = (
-	Thermometer.gorm
+	Thermometer.gorm,
+	Preferences.gorm
     );
     LANGUAGE = English;
-    LAST_EDITING = "2005-02-10 09:44:56 +0000";
+    LAST_EDITING = "2005-02-11 03:41:07 +0000";
     LIBRARIES = (
 	"gnustep-base",
 	"gnustep-gui"

@@ -1,0 +1,21 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FirstResponder = {
+	Actions = (
+	    "apply:"
+	);
+	Super = NSObject;
+    };
+    PreferenceController = {
+	Actions = (
+	    "ok:",
+	    "cancel:",
+	    "apply:"
+	);
+	Outlets = (
+	    url,
+	    frequency
+	);
+	Super = NSWindowController;
+    };
+}

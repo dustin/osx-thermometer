@@ -12,7 +12,6 @@
 #import "HttpSource.h"
 
 #ifndef GNUSTEP
-# define HAVE_PREFERENCES 1
 # define HAVE_HTTP_SOURCE 1
 #endif
 
@@ -20,13 +19,11 @@
 
 -(IBAction)launchPreferences:(id)sender
 {
-#ifdef HAVE_PREFERENCES
 	if(prefController == nil) {
     	prefController=[[PreferenceController alloc]
 			initWithWindowNibName: @"Preferences"];
 	}
 	[prefController showWindow: sender];
-#endif
 }
 
 -(void)setUnits:(NSString *)to

@@ -18,7 +18,8 @@ GNUSTEP_INSTALLATION_DIR = $(HOME)/GNUstep
 # Resource files
 #
 Thermometer_RESOURCE_FILES = \
-Resources/Thermometer.gorm\
+Resources/Thermometer.gorm \
+Resources/Preferences.gorm\
 Resources/therm-c.png \
 Resources/therm-f.png\
 Resources/Info-gnustep.plist
@@ -36,7 +37,8 @@ ThermometerCell.h \
 LogController.h \
 Readings.h \
 LempSource.h \
-TempSource.h
+TempSource.h \
+PreferenceController.h
 
 #
 # Class files
@@ -51,7 +53,8 @@ ThermometerCell.m \
 LogController.m \
 Readings.m \
 LempSource.m \
-TempSource.m
+TempSource.m \
+PreferenceController.m
 
 #
 # C files
