@@ -29,18 +29,24 @@
 #endif
 }
 
--(IBAction)setCelsius:(id)sender
+-(void)setUnits:(NSString *)to
 {
 	NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
-    [defaults setObject: @"c" forKey: @"units"];
+    [defaults setObject:to forKey: @"units"];
+	[[NSNotificationCenter defaultCenter]
+		postNotificationName:UNIT_CHANGE
+		object:to];
     [thermMatrix setNeedsDisplay: TRUE];
+}
+
+-(IBAction)setCelsius:(id)sender
+{
+	[self setUnits:@"c"];
 }
 
 -(IBAction)setFarenheit:(id)sender
 {
-	NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
-    [defaults setObject: @"f" forKey: @"units"];
-    [thermMatrix setNeedsDisplay: TRUE];
+	[self setUnits:@"f"];
 }
 
 // Updates from the UI
@@ -113,10 +119,12 @@
 	c=needcols;
 
 	NSLog(@"Setting up with %d rows and %d columns\n", r, c);
+	NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
 
     for(i=0; i<[therms count]; i++) {
 		Thermometer *therm=[therms objectAtIndex: i];
-        ThermometerCell *tc=[[ThermometerCell alloc] init];
+        ThermometerCell *tc=[[ThermometerCell alloc]
+			initWithUnits:[defaults objectForKey:@"units"]];
         [tc setTherm: therm];
         [[tc therm] setTag: i];
         NSMenuItem *mi=[[[NSMenuItem alloc] initWithTitle:[tc description]

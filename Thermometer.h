@@ -10,6 +10,7 @@
 
 #define DATA_UPDATED @"DATA_UPDATED"
 #define THERM_LIST @"THERM_LIST"
+#define UNIT_CHANGE @"UNIT_CHANGE"
 #define RING_BUFFER_SIZE 60
 
 #ifndef TRUE

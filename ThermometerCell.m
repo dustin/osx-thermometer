@@ -15,16 +15,29 @@
 
 @implementation ThermometerCell
 
--(id)init
+-(id)initWithUnits:(NSString *)u
 {
     id rv=[super init];
-    celsius=TRUE;
-	defaults=[NSUserDefaults standardUserDefaults];
+
+	[self setUnits:u];
+
     [self setImagePosition: NSImageAbove];
     [self setHighlightsBy: NSNoCellMask];
     [self setShowsStateBy: NSNoCellMask];
     [self setBezelStyle: NSShadowlessSquareBezelStyle];
+
+	[[NSNotificationCenter defaultCenter]
+		addObserver:self
+		selector:@selector(unitChanged:)
+		name:UNIT_CHANGE
+		object:nil];
+
     return(rv);
+}
+
+-(void)unitChanged:(id)ob
+{
+	[self setUnits:[ob object]];
 }
 
 -(void)setTherm: (Thermometer *)t
@@ -81,6 +94,7 @@ static float ctof(float c)
 
 -(void)setUnits:(NSString *)u
 {
+	NSLog(@"Units set to %@", u);
     if([u isEqualToString: @"c"]) {
         celsius=TRUE;
         [self setImage: cImage];
@@ -142,18 +156,7 @@ static float ctof(float c)
 {
 	// Get an autorelease pool here
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    // Figure out whether it's celsius or farenheit
-    NSString *u=[defaults objectForKey: @"units"];
-    // If it's changed, update it.
-    if([u isEqualToString: @"c"]) {
-        if(!celsius) {
-            [self setUnits: u];
-        }
-    } else {
-        if(celsius) {
-            [self setUnits: u];
-        }
-    }
+
     [super drawInteriorWithFrame: cellFrame inView: controlView];
     // Draw the reading
     NSString *readingStr = [[NSString alloc] initWithFormat: @"%.2f",

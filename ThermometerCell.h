@@ -19,16 +19,16 @@
     NSImage *fImage;
     Thermometer *therm;
     BOOL _showTrend;
-
-	NSUserDefaults *defaults;
 }
+
+-(id)initWithUnits:(NSString *)u;
 
 -(void)setCImage: (NSImage *)to;
 -(void)setFImage: (NSImage *)to;
 -(void)setTherm: (Thermometer *)t;
+-(void)setUnits:(NSString *)to;
 -(id)therm;
 
 -(void)newReading:(float)r;
-
 
 @end
