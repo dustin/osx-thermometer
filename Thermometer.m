@@ -55,15 +55,14 @@
         [lastReadings removeLastObject];
     }
     // Add the current reading
-    NSNumber *n=[[NSNumber alloc] initWithFloat: r];
 	TempReading *tr=[[TempReading alloc] initWithName:[self name] reading:r];
     [lastReadings insertObject:tr atIndex: 0];
     [tr release];
     
     // Check to see whether we're going up or down
-    n=[lastReadings lastObject];
+    TempReading *lastReading=[lastReadings lastObject];
     // Remember the trend (upwards or downwards)
-    trend=r - [n floatValue];
+    trend=r - [lastReading floatValue];
 }
 
 // Check for valid values
