@@ -106,6 +106,11 @@
 			reading=CTOF(reading);
 		}
 		rv=[NSString stringWithFormat: @"%.2f", reading];
+	} else if([@"graph" isEqual:[tableColumn identifier]]) {
+		NSLog(@"Getting data for graph at %@", [item name]);
+		if([item isKindOfClass: [Thermometer class]]) {
+			rv=[item lastReadings];
+		}
 	} else {
 		if([item isKindOfClass: [Thermometer class]]) {
 			NSString *label=[NSString stringWithFormat: @"%@ (%d)",

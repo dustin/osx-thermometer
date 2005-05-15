@@ -180,7 +180,7 @@
 	NSString *thermUrlString=[defaults objectForKey: @"url"];
 	NSURL *thermUrl=[[NSURL alloc] initWithString: thermUrlString];
 	NSString *scheme=[thermUrl scheme];
-	
+
 	if([scheme isEqual: @"lemp"]) {
 		tempSrc=[[LempSource alloc] initWithURL: thermUrl];
 	} else if([scheme isEqual: @"http"]) {

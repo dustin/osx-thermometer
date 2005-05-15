@@ -7,6 +7,7 @@
 	objects = {
 		080E96DDFE201D6D7F000001 = {
 			children = (
+				DAE3381C0837EB9700544C5F,
 				DA59CF9407BB439C00276951,
 				DA276D2107BB3F0300AD709B,
 				DA276D1D07BB3EE500AD709B,
@@ -262,6 +263,7 @@
 //DA4
 		DA276D1B07BB3EBA00AD709B = {
 			children = (
+				DAE3381D0837EB9700544C5F,
 				DA59CF9307BB439C00276951,
 				DA276D2007BB3F0300AD709B,
 				DA276D1C07BB3EE500AD709B,
@@ -568,6 +570,34 @@
 			refType = 4;
 			sourceTree = "<group>";
 		};
+		DAE3381C0837EB9700544C5F = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			path = SparklineCell.m;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		DAE3381D0837EB9700544C5F = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = SparklineCell.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		DAE3381E0837EB9700544C5F = {
+			fileRef = DAE3381C0837EB9700544C5F;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		DAE3381F0837EB9700544C5F = {
+			fileRef = DAE3381D0837EB9700544C5F;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 		DAEF6F9506F2571600332201 = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.icns;
@@ -621,6 +651,7 @@
 				DA276D1E07BB3EE500AD709B,
 				DA276D2207BB3F0300AD709B,
 				DA59CF9507BB439C00276951,
+				DAE3381F0837EB9700544C5F,
 			);
 			isa = PBXHeadersBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -720,6 +751,7 @@
 				DA276D1F07BB3EE500AD709B,
 				DA276D2307BB3F0300AD709B,
 				DA59CF9607BB439C00276951,
+				DAE3381E0837EB9700544C5F,
 			);
 			isa = PBXSourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
