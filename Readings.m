@@ -107,7 +107,6 @@
 		}
 		rv=[NSString stringWithFormat: @"%.2f", reading];
 	} else if([@"graph" isEqual:[tableColumn identifier]]) {
-		NSLog(@"Getting data for graph at %@", [item name]);
 		if([item isKindOfClass: [Thermometer class]]) {
 			rv=[item lastReadings];
 		}

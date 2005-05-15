@@ -29,7 +29,7 @@
 }
 
 -(void)plotVals:(NSArray *)vals inRect:(NSRect)rect
-	min:(long long)minVal max:(long long)maxVal
+	min:(float)minVal max:(float)maxVal
 {
 	float pixdiff=rect.size.width/((float)[vals count]-1.0);
 	if(pixdiff > 1) {
@@ -42,14 +42,16 @@
 	while(object = [enumerator nextObject]) {
 		float v=[object floatValue];
 		float newx=rect.origin.x + x;
+		float rangeDiff=(maxVal - minVal);
+		float valPercent=(maxVal - v)/rangeDiff;
 		float newy=rect.origin.y+
-			rect.size.height-(((v/(float)maxVal)*rect.size.height));
+			rect.size.height-((valPercent*(float)rect.size.height));
 		if(newy > rect.origin.y + rect.size.height) {
-			NSLog(@"newy exceeded maximum value");
+			NSLog(@"newy exceeded maximum value (was %.2f)", newy);
 			newy=rect.origin.y + rect.size.height;
 		}
 		if(newy < rect.origin.y) {
-			NSLog(@"newy fell below minimum value");
+			NSLog(@"newy fell below minimum value (was %.2f)", newy);
 			newy=rect.origin.y;
 		}
 
@@ -65,8 +67,8 @@
 				[path lineToPoint: p];
 			}
 			/*
-			NSLog(@"   %@(%lld:%lld) %@ to %.0fx%.0f in %.0f,%.0f - %.0f,%.0f",
-				object, minVal, maxVal, op, newx, newy,
+			NSLog(@"\t%.2f(%.2f:%.2f) %@ to %.0fx%.0f in %.0f,%.0f - %.0f,%.0f",
+				v, minVal, maxVal, op, newx, newy,
 				rect.origin.x, rect.origin.y,
 				rect.origin.x + rect.size.width,
 					rect.origin.y + rect.size.height);
@@ -85,7 +87,7 @@
 	[[NSColor blackColor] set];
 
 	if([self objectValue] != nil && [[self objectValue] count] > 1) {
-		// NSLog(@"Drawing %@", [self objectValue]);
+		// NSLog(@"Drawing sparks");
 	/*
 		NSLog(@"Drawing %@ in %.0f,%.0f at %.0fx%.0f", self,
 			cellFrame.origin.x, cellFrame.origin.y,
