@@ -11,7 +11,7 @@
 #define DATA_UPDATED @"DATA_UPDATED"
 #define THERM_LIST @"THERM_LIST"
 #define UNIT_CHANGE @"UNIT_CHANGE"
-#define RING_BUFFER_SIZE 60
+#define RING_BUFFER_SIZE 180
 
 #define CTOF(c) (((9.0/5.0)*c) + 32.0)
 
