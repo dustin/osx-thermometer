@@ -2,6 +2,7 @@
 #import "Readings.h"
 #import "Thermometer.h"
 #import "TempReading.h"
+#import "SparklineCell.h"
 
 @implementation Readings
 
@@ -108,7 +109,20 @@
 		rv=[NSString stringWithFormat: @"%.2f", reading];
 	} else if([@"graph" isEqual:[tableColumn identifier]]) {
 		if([item isKindOfClass: [Thermometer class]]) {
-			rv=[item lastReadings];
+			rv=[[NSMutableArray alloc]
+				initWithCapacity: [[item lastReadings] count]];
+			[rv autorelease];
+			NSEnumerator *e=[[item lastReadings] objectEnumerator];
+			TempReading *tr=nil;
+			while( (tr = [e nextObject]) != nil) {
+				SparklineDatum *d=[[SparklineDatum alloc]
+					initWithTimestamp: [[tr readingTimestamp]
+										timeIntervalSince1970]
+					value: [NSNumber numberWithFloat: [tr floatValue]]];
+				[rv addObject: d];
+
+				[d release];
+			}
 		}
 	} else {
 		if([item isKindOfClass: [Thermometer class]]) {

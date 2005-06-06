@@ -8,8 +8,26 @@
 
 #import <Cocoa/Cocoa.h>
 
+@interface SparklineDatum : NSObject {
+	long timestamp;
+	NSNumber *value;
+}
+
+-(id)initWithTimestamp:(long)ts value:(NSNumber *)v;
+-(long)timestamp;
+-(NSNumber *)value;
+
+@end
 
 @interface SparklineCell : NSCell {
+
+	// This will remember the frame of the cell that is being tracked
+	NSRect trackingCell;
+	NSView *trackingView;
+	BOOL displaying;
+
+	double minValue;
+	double maxValue;
 
 }
 
