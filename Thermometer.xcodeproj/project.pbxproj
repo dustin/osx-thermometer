@@ -1,0 +1,463 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DA276D1E07BB3EE500AD709B /* LempSource.h in Headers */ = {isa = PBXBuildFile; fileRef = DA276D1C07BB3EE500AD709B /* LempSource.h */; };
+		DA276D1F07BB3EE500AD709B /* LempSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA276D1D07BB3EE500AD709B /* LempSource.m */; };
+		DA276D2207BB3F0300AD709B /* HttpSource.h in Headers */ = {isa = PBXBuildFile; fileRef = DA276D2007BB3F0300AD709B /* HttpSource.h */; };
+		DA276D2307BB3F0300AD709B /* HttpSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA276D2107BB3F0300AD709B /* HttpSource.m */; };
+		DA52AB4207BA015B00680CEC /* Readings.h in Headers */ = {isa = PBXBuildFile; fileRef = DA52AB4007BA015B00680CEC /* Readings.h */; };
+		DA52AB4307BA015B00680CEC /* Readings.m in Sources */ = {isa = PBXBuildFile; fileRef = DA52AB4107BA015B00680CEC /* Readings.m */; };
+		DA52AB4607BA021600680CEC /* LogController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA52AB4407BA021600680CEC /* LogController.m */; };
+		DA52AB4707BA021600680CEC /* LogController.h in Headers */ = {isa = PBXBuildFile; fileRef = DA52AB4507BA021600680CEC /* LogController.h */; };
+		DA59CF9507BB439C00276951 /* TempSource.h in Headers */ = {isa = PBXBuildFile; fileRef = DA59CF9307BB439C00276951 /* TempSource.h */; };
+		DA59CF9607BB439C00276951 /* TempSource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA59CF9407BB439C00276951 /* TempSource.m */; };
+		DA8EEB5D07BB6568007FE2EB /* therm-c.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8EEB5B07BB6568007FE2EB /* therm-c.png */; };
+		DA8EEB5E07BB6568007FE2EB /* therm-f.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8EEB5C07BB6568007FE2EB /* therm-f.png */; };
+		DAE3381E0837EB9700544C5F /* SparklineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE3381C0837EB9700544C5F /* SparklineCell.m */; };
+		DAE3381F0837EB9700544C5F /* SparklineCell.h in Headers */ = {isa = PBXBuildFile; fileRef = DAE3381D0837EB9700544C5F /* SparklineCell.h */; };
+		DAEF6FA406F259E200332201 /* Thermometer.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB80BDC042D85D700A80132 /* Thermometer.h */; };
+		DAEF6FA506F259E200332201 /* ThermometerCell.h in Headers */ = {isa = PBXBuildFile; fileRef = DAE13580042D9F3D00A80132 /* ThermometerCell.h */; };
+		DAEF6FA606F259E200332201 /* ThermController.h in Headers */ = {isa = PBXBuildFile; fileRef = DA58D018042EF20000A80132 /* ThermController.h */; };
+		DAEF6FA706F259E200332201 /* PreferenceController.h in Headers */ = {isa = PBXBuildFile; fileRef = DA641D0404301CF700A80132 /* PreferenceController.h */; };
+		DAEF6FA806F259E200332201 /* LempClient.h in Headers */ = {isa = PBXBuildFile; fileRef = DABA0BA806534691003E708E /* LempClient.h */; };
+		DAEF6FA906F259E200332201 /* TempReading.h in Headers */ = {isa = PBXBuildFile; fileRef = DABA0BAC06535774003E708E /* TempReading.h */; };
+		DAEF6FAB06F259E200332201 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
+		DAEF6FAC06F259E200332201 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		DAEF6FAF06F259E200332201 /* Preferences.nib in Resources */ = {isa = PBXBuildFile; fileRef = DA641D0A04301FBA00A80132 /* Preferences.nib */; };
+		DAEF6FB006F259E200332201 /* Help in Resources */ = {isa = PBXBuildFile; fileRef = DA5B145904303C2700A80132 /* Help */; };
+		DAEF6FB106F259E200332201 /* temp.icns in Resources */ = {isa = PBXBuildFile; fileRef = DAEF6F9506F2571600332201 /* temp.icns */; };
+		DAEF6FB306F259E200332201 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		DAEF6FB406F259E200332201 /* Thermometer.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB80BDD042D85D700A80132 /* Thermometer.m */; };
+		DAEF6FB506F259E200332201 /* ThermometerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE13581042D9F3D00A80132 /* ThermometerCell.m */; };
+		DAEF6FB606F259E200332201 /* ThermController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA58D017042EF20000A80132 /* ThermController.m */; };
+		DAEF6FB706F259E200332201 /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA641D0504301CF700A80132 /* PreferenceController.m */; };
+		DAEF6FB806F259E200332201 /* LempClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DABA0BA906534691003E708E /* LempClient.m */; };
+		DAEF6FB906F259E200332201 /* TempReading.m in Sources */ = {isa = PBXBuildFile; fileRef = DABA0BAD06535774003E708E /* TempReading.m */; };
+		DAEF6FBB06F259E200332201 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		DA276D1C07BB3EE500AD709B /* LempSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LempSource.h; sourceTree = "<group>"; };
+		DA276D1D07BB3EE500AD709B /* LempSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LempSource.m; sourceTree = "<group>"; };
+		DA276D2007BB3F0300AD709B /* HttpSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpSource.h; sourceTree = "<group>"; };
+		DA276D2107BB3F0300AD709B /* HttpSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpSource.m; sourceTree = "<group>"; };
+		DA52AB4007BA015B00680CEC /* Readings.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Readings.h; sourceTree = "<group>"; };
+		DA52AB4107BA015B00680CEC /* Readings.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = Readings.m; sourceTree = "<group>"; };
+		DA52AB4407BA021600680CEC /* LogController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = LogController.m; sourceTree = "<group>"; };
+		DA52AB4507BA021600680CEC /* LogController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = LogController.h; sourceTree = "<group>"; };
+		DA58D017042EF20000A80132 /* ThermController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = ThermController.m; sourceTree = "<group>"; };
+		DA58D018042EF20000A80132 /* ThermController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ThermController.h; sourceTree = "<group>"; };
+		DA59CF9307BB439C00276951 /* TempSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempSource.h; sourceTree = "<group>"; };
+		DA59CF9407BB439C00276951 /* TempSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempSource.m; sourceTree = "<group>"; };
+		DA5B145904303C2700A80132 /* Help */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = Help; sourceTree = "<group>"; };
+		DA641D0404301CF700A80132 /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
+		DA641D0504301CF700A80132 /* PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceController.m; sourceTree = "<group>"; };
+		DA641D0804301F5800A80132 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/Preferences.nib; sourceTree = "<group>"; };
+		DA8EEB5B07BB6568007FE2EB /* therm-c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "therm-c.png"; path = "Resources/therm-c.png"; sourceTree = "<group>"; };
+		DA8EEB5C07BB6568007FE2EB /* therm-f.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "therm-f.png"; path = "Resources/therm-f.png"; sourceTree = "<group>"; };
+		DAB80BDC042D85D700A80132 /* Thermometer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thermometer.h; sourceTree = "<group>"; };
+		DAB80BDD042D85D700A80132 /* Thermometer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thermometer.m; sourceTree = "<group>"; };
+		DABA0BA806534691003E708E /* LempClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LempClient.h; sourceTree = "<group>"; };
+		DABA0BA906534691003E708E /* LempClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LempClient.m; sourceTree = "<group>"; };
+		DABA0BAC06535774003E708E /* TempReading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempReading.h; sourceTree = "<group>"; };
+		DABA0BAD06535774003E708E /* TempReading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempReading.m; sourceTree = "<group>"; };
+		DAE13580042D9F3D00A80132 /* ThermometerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThermometerCell.h; sourceTree = "<group>"; };
+		DAE13581042D9F3D00A80132 /* ThermometerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThermometerCell.m; sourceTree = "<group>"; };
+		DAE3381C0837EB9700544C5F /* SparklineCell.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = SparklineCell.m; sourceTree = "<group>"; };
+		DAE3381D0837EB9700544C5F /* SparklineCell.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SparklineCell.h; sourceTree = "<group>"; };
+		DAEF6F9506F2571600332201 /* temp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = temp.icns; sourceTree = "<group>"; };
+		DAEF6FBC06F259E200332201 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAEF6FBD06F259E200332201 /* Thermometer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thermometer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DAEF6FBA06F259E200332201 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAEF6FBB06F259E200332201 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				DAE3381C0837EB9700544C5F /* SparklineCell.m */,
+				DA59CF9407BB439C00276951 /* TempSource.m */,
+				DA276D2107BB3F0300AD709B /* HttpSource.m */,
+				DA276D1D07BB3EE500AD709B /* LempSource.m */,
+				DA58D017042EF20000A80132 /* ThermController.m */,
+				DAE13581042D9F3D00A80132 /* ThermometerCell.m */,
+				DAB80BDD042D85D700A80132 /* Thermometer.m */,
+				DA641D0504301CF700A80132 /* PreferenceController.m */,
+				DABA0BA906534691003E708E /* LempClient.m */,
+				DABA0BAD06535774003E708E /* TempReading.m */,
+				DA52AB4107BA015B00680CEC /* Readings.m */,
+				DA52AB4407BA021600680CEC /* LogController.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DAEF6FBD06F259E200332201 /* Thermometer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* Thermometer */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				DA276D1B07BB3EBA00AD709B /* Headers */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = Thermometer;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DA8EEB5B07BB6568007FE2EB /* therm-c.png */,
+				DA8EEB5C07BB6568007FE2EB /* therm-f.png */,
+				DAEF6FBC06F259E200332201 /* Info.plist */,
+				DAEF6F9506F2571600332201 /* temp.icns */,
+				DA5B145904303C2700A80132 /* Help */,
+				DA641D0A04301FBA00A80132 /* Preferences.nib */,
+				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA276D1B07BB3EBA00AD709B /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				DAE3381D0837EB9700544C5F /* SparklineCell.h */,
+				DA59CF9307BB439C00276951 /* TempSource.h */,
+				DA276D2007BB3F0300AD709B /* HttpSource.h */,
+				DA276D1C07BB3EE500AD709B /* LempSource.h */,
+				DABA0BA806534691003E708E /* LempClient.h */,
+				DA52AB4507BA021600680CEC /* LogController.h */,
+				DA641D0404301CF700A80132 /* PreferenceController.h */,
+				DA52AB4007BA015B00680CEC /* Readings.h */,
+				DABA0BAC06535774003E708E /* TempReading.h */,
+				DA58D018042EF20000A80132 /* ThermController.h */,
+				DAB80BDC042D85D700A80132 /* Thermometer.h */,
+				DAE13580042D9F3D00A80132 /* ThermometerCell.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		DAEF6FA306F259E200332201 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAEF6FA406F259E200332201 /* Thermometer.h in Headers */,
+				DAEF6FA506F259E200332201 /* ThermometerCell.h in Headers */,
+				DAEF6FA606F259E200332201 /* ThermController.h in Headers */,
+				DAEF6FA706F259E200332201 /* PreferenceController.h in Headers */,
+				DAEF6FA806F259E200332201 /* LempClient.h in Headers */,
+				DAEF6FA906F259E200332201 /* TempReading.h in Headers */,
+				DA52AB4207BA015B00680CEC /* Readings.h in Headers */,
+				DA52AB4707BA021600680CEC /* LogController.h in Headers */,
+				DA276D1E07BB3EE500AD709B /* LempSource.h in Headers */,
+				DA276D2207BB3F0300AD709B /* HttpSource.h in Headers */,
+				DA59CF9507BB439C00276951 /* TempSource.h in Headers */,
+				DAE3381F0837EB9700544C5F /* SparklineCell.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		DAEF6FA206F259E200332201 /* Thermometer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA5C401F0AA0EAD8002CE426 /* Build configuration list for PBXNativeTarget "Thermometer" */;
+			buildPhases = (
+				DAEF6FA306F259E200332201 /* Headers */,
+				DAEF6FAA06F259E200332201 /* Resources */,
+				DAEF6FB206F259E200332201 /* Sources */,
+				DAEF6FBA06F259E200332201 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Thermometer;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Thermometer;
+			productReference = DAEF6FBD06F259E200332201 /* Thermometer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = DA5C40230AA0EAD8002CE426 /* Build configuration list for PBXProject "Thermometer" */;
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Thermometer */;
+			projectDirPath = "";
+			targets = (
+				DAEF6FA206F259E200332201 /* Thermometer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DAEF6FAA06F259E200332201 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAEF6FAB06F259E200332201 /* MainMenu.nib in Resources */,
+				DAEF6FAC06F259E200332201 /* InfoPlist.strings in Resources */,
+				DAEF6FAF06F259E200332201 /* Preferences.nib in Resources */,
+				DAEF6FB006F259E200332201 /* Help in Resources */,
+				DAEF6FB106F259E200332201 /* temp.icns in Resources */,
+				DA8EEB5D07BB6568007FE2EB /* therm-c.png in Resources */,
+				DA8EEB5E07BB6568007FE2EB /* therm-f.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DAEF6FB206F259E200332201 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAEF6FB306F259E200332201 /* main.m in Sources */,
+				DAEF6FB406F259E200332201 /* Thermometer.m in Sources */,
+				DAEF6FB506F259E200332201 /* ThermometerCell.m in Sources */,
+				DAEF6FB606F259E200332201 /* ThermController.m in Sources */,
+				DAEF6FB706F259E200332201 /* PreferenceController.m in Sources */,
+				DAEF6FB806F259E200332201 /* LempClient.m in Sources */,
+				DAEF6FB906F259E200332201 /* TempReading.m in Sources */,
+				DA52AB4307BA015B00680CEC /* Readings.m in Sources */,
+				DA52AB4607BA021600680CEC /* LogController.m in Sources */,
+				DA276D1F07BB3EE500AD709B /* LempSource.m in Sources */,
+				DA276D2307BB3F0300AD709B /* HttpSource.m in Sources */,
+				DA59CF9607BB439C00276951 /* TempSource.m in Sources */,
+				DAE3381E0837EB9700544C5F /* SparklineCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		29B97318FDCFA39411CA2CEA /* MainMenu.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29B97319FDCFA39411CA2CEA /* English */,
+			);
+			name = MainMenu.nib;
+			sourceTree = "<group>";
+		};
+		DA641D0A04301FBA00A80132 /* Preferences.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA641D0804301F5800A80132 /* English */,
+			);
+			name = Preferences.nib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DA5C40200AA0EAD8002CE426 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					i386,
+					ppc,
+				);
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = "";
+				OPTIMIZATION_CFLAGS = "-O0";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = Thermometer;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Development;
+		};
+		DA5C40210AA0EAD8002CE426 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					i386,
+					ppc,
+				);
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = Thermometer;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+		DA5C40220AA0EAD8002CE426 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					i386,
+					ppc,
+				);
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = Thermometer;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+			};
+			name = Default;
+		};
+		DA5C40240AA0EAD8002CE426 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Development;
+		};
+		DA5C40250AA0EAD8002CE426 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Deployment;
+		};
+		DA5C40260AA0EAD8002CE426 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Default;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DA5C401F0AA0EAD8002CE426 /* Build configuration list for PBXNativeTarget "Thermometer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA5C40200AA0EAD8002CE426 /* Development */,
+				DA5C40210AA0EAD8002CE426 /* Deployment */,
+				DA5C40220AA0EAD8002CE426 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		DA5C40230AA0EAD8002CE426 /* Build configuration list for PBXProject "Thermometer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA5C40240AA0EAD8002CE426 /* Development */,
+				DA5C40250AA0EAD8002CE426 /* Deployment */,
+				DA5C40260AA0EAD8002CE426 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
