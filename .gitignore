@@ -1,0 +1,6 @@
+build/
+*.mode1*
+*.mode2*
+*.pbxuser
+*~.nib
+.DS_Store

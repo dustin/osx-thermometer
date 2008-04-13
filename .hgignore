@@ -1,7 +1,0 @@
-(^|/)\_darcs($|/)
-(^|/)\.hg($|/)
-(^|/)\.hgtags($|/)
-^Thermometer.log$
-^Thermometer.state$
-^Thermometer.state.old$
-^Thermometer.state.journal$
