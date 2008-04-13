@@ -49,3 +49,17 @@ Each thermometer contains two basic data elements:
 * The trend (above the center)
 * The current reading is the reading as of the last update (seen at the bottom of the window). The trend is the difference between the current reading and the oldest reading you have up to ten samples ago.
 * For example, if your sample rate is 300 (once every five minutes), and your current reading is 35.81, and the trend is -0.21, then the temperature has fallen .21 degrees in the last 50 minutes as long as you've had the application running at least that long.
+
+# Screenshots
+
+## Main Window
+
+![main window](http://public.west.spy.net/therm/main.png)
+
+## Log Window
+
+![log window](http://public.west.spy.net/therm/log.png)
+
+## App Menu
+
+![app menu](http://public.west.spy.net/therm/menu.png)
