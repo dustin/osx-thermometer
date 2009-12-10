@@ -114,6 +114,7 @@
 	NSLog(@"Setting up with %d rows and %d columns\n", r, c);
 	NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
 
+    int rownum = 0, colnum = 0;
     for(i=0; i<[therms count]; i++) {
 		Thermometer *therm=[therms objectAtIndex: i];
         ThermometerCell *tc=[[ThermometerCell alloc]
@@ -135,10 +136,11 @@
         [tc setCImage: ci];
         [tc setFImage: fi];
         // Figure out where to put it
-        int rownum=i % ([therms count]/c);
-        int colnum=i/c;
-        
 		NSLog(@"Putting %@ at %dx%d\n", tc, rownum, colnum);
+        if (++rownum > needrows) {
+            rownum = 0;
+            colnum++;
+        }
         [thermMatrix putCell:tc atRow:rownum column:colnum];
         [tc release];
     }
