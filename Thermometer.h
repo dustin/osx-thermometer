@@ -36,6 +36,6 @@
 -(NSArray *)lastReadings;
 
 -(int)tag;
--(void)setTag:(int)to;
+-(void)setTag:(NSInteger)to;
 
 @end

@@ -93,7 +93,7 @@
 -(void)placeTherms:(NSImage *)ci fImage:(NSImage *)fi
 {
     // Get the current number of rows and columns
-    int r, c;
+    NSInteger r, c;
     [thermMatrix getNumberOfRows:&r columns:&c];
 
 	/* Figure out the numbers of rows and columns */
@@ -202,7 +202,7 @@
 	NSLog(@"Initialized source:  %@", tempSrc);
 
 	// get the row sizes and stuff
-    int orow, ocol;
+    NSInteger orow, ocol;
     [thermMatrix getNumberOfRows:&orow columns:&ocol];
 
 	// Set the autosave name
@@ -211,7 +211,7 @@
 	// Create and place the cells
 	[self placeTherms: ci fImage: fi];
 
-    int r, c;
+    NSInteger r, c;
     [thermMatrix getNumberOfRows:&r columns:&c];
 	NSLog(@"Configuring window for %dx%d from %dx%d", r, c, orow, ocol);
 

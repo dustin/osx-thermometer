@@ -74,8 +74,6 @@
 	trackingView=controlView;
 	displaying=NO;
 
-	NSHelpManager *helpManager = [NSHelpManager sharedHelpManager];
-
 	[super trackMouse:theEvent inRect:cellFrame ofView:controlView
 		untilMouseUp:untilMouseUp];
 	return(YES);
@@ -83,8 +81,6 @@
 
 - (BOOL)startTrackingAt:(NSPoint)startPoint inView:(NSView *)controlView
 {
-	NSPoint translatedPoint=[self translatePoint: startPoint];
-	BOOL defaultRv=[super startTrackingAt:startPoint inView:controlView];
 	return(YES);
 }
 
@@ -138,8 +134,7 @@
 			locationHint:helpPoint];
 	}
 
-	BOOL defaultRv=[super continueTracking:lastPoint at:currentPoint
-		inView:controlView];
+	[super continueTracking:lastPoint at:currentPoint inView:controlView];
 	return(YES);
 }
 

@@ -95,7 +95,7 @@ static BOOL isValidReading(float r)
     return(tag);
 }
 
--(void)setTag:(int)to
+-(void)setTag:(NSInteger)to
 {
     tag=to;
 }
