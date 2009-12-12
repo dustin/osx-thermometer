@@ -101,6 +101,9 @@
 	NSArray *therms=[tempSrc therms];
 	needcols=sqrt([therms count]);
 	needrows=[therms count] / needcols;
+    if(needrows * needcols < [therms count]) {
+        needcols++;
+    }
 	int i=0;
 	for(i=r; i<needrows; i++) {
 		[thermMatrix addRow];
@@ -111,7 +114,7 @@
 	r=needrows;
 	c=needcols;
 
-	NSLog(@"Setting up with %d rows and %d columns\n", r, c);
+	NSLog(@"Setting up %d therms with %d rows and %d columns\n", [therms count], r, c);
 	NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
 
     int rownum = 0, colnum = 0;
@@ -135,13 +138,15 @@
 
         [tc setCImage: ci];
         [tc setFImage: fi];
-        // Figure out where to put it
+
 		NSLog(@"Putting %@ at %dx%d\n", tc, rownum, colnum);
-        if (++rownum > needrows) {
+        [thermMatrix putCell:tc atRow:rownum column:colnum];
+
+        // Figure out where to place the next one.
+        if (++rownum >= needrows) {
             rownum = 0;
             colnum++;
         }
-        [thermMatrix putCell:tc atRow:rownum column:colnum];
         [tc release];
     }
 
